@@ -1,0 +1,81 @@
+nav {
+    margin: 2vw 2vw 0 2vw;
+}
+
+nav h3 {
+    font-size: 2vw;
+}
+
+main {
+    display: flex;
+}
+
+.graphics {
+    padding-top: 3vw;
+    /* display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    grid-gap: 2vw; */
+    width: 100%;
+    display: grid;
+    grid-gap: 2vw;
+    grid-template-columns: repeat(3, 32%);
+    margin: auto;
+    justify-content: center;
+    margin: 2vw;
+}
+
+.graphic {
+    /* margin: 1vw; */
+    /* width: 22vw; */
+    height: 17vw;
+    border-radius: 0.5vw;
+    overflow: hidden;
+    box-shadow: 0 0 50px 10px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+.graphic iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    pointer-events: none;
+    scale: 1.2;
+}
+
+.graphic .wrapper {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.3s ease all;
+    top: 0;
+}
+
+.graphic .wrapper button {
+    padding: 1vw 2vw;
+    color: white;
+    background-color: #1f1f1f;
+    font-size: max(1.2vw, 10px);
+    border-radius: 10%;
+    border: none;
+    cursor: pointer;
+
+}
+
+.graphic .wrapper:hover {
+    opacity: 1;
+}
+
+/* @media (max-width: 700px) {
+    .graphic {
+        width: max(45vw, 250px);
+        height: 25vw;
+
+        
+    }
+} */

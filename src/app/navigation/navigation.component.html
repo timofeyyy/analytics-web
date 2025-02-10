@@ -1,0 +1,23 @@
+<header>
+    <img src="/assets/images/menu.svg"  alt="" on-click="setManuState()" [ngClass]="{out:!menuState}">
+</header>
+<aside [ngClass]="{hide:menuState}">
+    <nav>
+        <ul>
+            <li>
+                <a routerLink="">Главная</a>
+            </li>
+        </ul>
+        <ul>
+            <li *ngFor="let component of router; let i = index" [ngClass]="{parent:true, show:component.isShown}"
+                on-click="setActiveRoute(component, i)">
+                <span>{{component.name}}</span>
+                <ul class="analytics" #ul_list_ref>
+                    <li *ngFor="let analytics of component.analytics">
+                        <a [routerLink]="analytics.url">{{analytics.name}}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</aside>    

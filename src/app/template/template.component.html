@@ -1,0 +1,13 @@
+<nav>
+    <h3>{{url}}</h3>
+</nav>
+<main>
+    <div class="graphics">
+        <div class="graphic" *ngFor="let link of appRoutes">
+            <iframe [src]="link.safeUrl" frameborder="0"></iframe>
+            <div class="wrapper">
+                <button on-click="navigate(link.url)" >Перейти</button>
+            </div>
+        </div>
+    </div>
+</main>

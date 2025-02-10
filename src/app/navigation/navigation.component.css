@@ -1,40 +1,55 @@
-.window {
-    /* height: 100vh; */
-    margin: 0 auto;
-    /* display: flex; */
+aside {
+    position: fixed;
+    height: 100%;
+    width: 20vw;
+    background-color: #171717;
+    transition: 0.3s ease width;
+    right: 0;
+    top: 0;
+    z-index: 12;
 }
 
-/* .window .workspace header {
-    display: none;
-} */
 
-/* .workspace { */
-    /* width: 80%; */
-    /* margin: 1vw; */
-/* } */
-
-.workspace h3 {
-    font-size: 3vw;
+.hide {
+    width: 0;
 }
 
-/* .nav-wrapper {
-    margin: 1vw 1vw 1vw 3vw;
 
+
+header {
+    padding: 1vw;
+    text-align: end;
+    position: absolute;
+    z-index: 13;
+    right: 1vw;
+    top: 1vw;
+}
+
+header .out {
+    filter: invert(1);
+}
+
+header img {
+    width: max(2vw, 20px);
+    height: max(2vw, 20px);
+    filter: invert(0);
+    transition: 0.3s ease all;
 }
 
 nav {
-    width: 20%;
-    background-color: #171717;
-    position: fixed;
-    height: 100%;
-    right: 0;
+    padding: 1vw 1vw 1vw 3vw;
+    text-align: justify;
 }
-
 
 nav ul {
     list-style-type: none;
-    transition: 1s ease all;
+    /* transition: 0.2s ease all; */
     overflow: hidden;
+    opacity: 1;
+}
+
+.hide nav ul {
+    opacity: 0;
 }
 
 .analytics {
@@ -59,10 +74,12 @@ nav ul .parent {
 }
 
 nav ul .parent>ul {
+    /*    transform: translate(0, -200%);*/
     display: none;
 }
 
 nav ul .show>ul {
+    /*    transform: translate(0, 0);*/
     display: block;
 }
 
@@ -75,7 +92,7 @@ nav ul li::before {
 }
 
 nav ul>.parent::before {
-    content: url("../assets/images/arrow.svg");
+    content: url("../../assets/images/arrow.svg");
     transform: rotate(270deg);
     vertical-align: -25%;
 }
@@ -87,7 +104,7 @@ nav ul .show::before {
 }
 
 
-header img {
+/* header img {
     width: max(3vw, 20px);
     height: max(3vw, 20px);
 }
@@ -96,7 +113,8 @@ header {
     position: absolute;
     right: 1vw;
     top: 1vw;
-}
+} */
+ 
 
 @media (max-width: 700px) {
     .window>nav {
@@ -110,4 +128,4 @@ header {
     .window .workspace header {
         display: block;
     }
-} */
+}
