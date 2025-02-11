@@ -17,7 +17,7 @@ export interface ISeries {
     data: Array<string | number>
 }
 
-export interface IBitDepthValueAnalytic {
+export interface IBitDepthValue {
     bitDepthValue: string,
     manufacturerName: string
 }

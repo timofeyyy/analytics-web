@@ -2,11 +2,11 @@ import { Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
 // import { MicrochipsComponent } from './components/microchips/microchips.component';
 // import { BitDepthValueComponent } from './components/microchips/bit-depth-value/bit-depth-value.component';
-import { BarComponent } from './graphics/bar/bar.component';
+import { BarComponent } from './apexChart/bar/bar.component';
 import { TemplateComponent } from './template/template.component';
-import { LineComponent } from './graphics/line/line.component';
-import { AreaComponent } from './graphics/area/area.component';
-import { StackedBarComponent } from './graphics/stacked/stacked.component';
+import { LineComponent } from './apexChart/line/line.component';
+import { AreaComponent } from './apexChart/area/area.component';
+import { StackedBarComponent } from './apexChart/stacked/stacked.component';
 
 
 export const routes: Routes = [

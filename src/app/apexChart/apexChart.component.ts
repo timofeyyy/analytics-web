@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { NavigationModel } from '../model/navigation.model';
 import { EndpointsModel } from '../model/endpoints.model';
 import { catchError, map } from 'rxjs';
@@ -7,18 +7,23 @@ import { IApexChartData } from '../../types/ITemplate';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { NgClass } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-apex-chart',
-    imports: [NgApexchartsModule, HttpClientModule],
+    imports: [NgApexchartsModule, HttpClientModule, NgClass],
     templateUrl: './apexChart.component.html',
-    styleUrl: './apexChart.component.css'
+    styleUrl: './apexChart.component.css',
+    encapsulation: ViewEncapsulation.None
 })
 export class ApexChartComponent {
     chartOptions!: Partial<ChartOptions> | any;
     table!: string | null
     column!: string | null
     apexChartData!: IApexChartData
+    showData!: boolean 
+    content!: any
 
     @Input()
     chart!: ApexChart
@@ -26,8 +31,26 @@ export class ApexChartComponent {
     constructor(
         private router: Router,
         private route: ActivatedRoute,
-        private httpClient: HttpClient
-    ) { }
+        private httpClient: HttpClient,
+        private sanitizer: DomSanitizer
+    ) {
+        this.showData = false
+       
+        this.chartOptions = {
+            series: [
+                {
+                    name: "",
+                    data: []
+                }
+            ],
+            chart: {
+                type: "bar"
+            }
+        
+        
+           
+        };
+    }
 
     ngOnInit(): void {
 
@@ -41,13 +64,16 @@ export class ApexChartComponent {
             this.httpClient.get<Array<Array<any>>>(`${NavigationModel.baseUrl}/${route}`)
                 .pipe(
                     map((data: Array<Array<any>>) => {
-
-                        console.log(this.table)
+                        // this.content = `\n\n\n\n\n${JSON.stringify(data)}`
+                        this.contentFormating(data)
+                        // console.log(this.table)
                         this.apexChartData = EndpointsModel.data[this.table!][this.column!](data)
-                        console.log(this.apexChartData)
+                        // console.log(this.apexChartData)
                         // this.storage.setData(data)
                         // this.router.navigate([route])
                         this.buildGraphic()
+
+
 
                     }),
                     catchError(err => {
@@ -94,7 +120,7 @@ export class ApexChartComponent {
 
     buildGraphic(): void {
         this.chartOptions = {
-            series: this.apexChartData.series,
+            series: this.apexChartData.series ,
             chart: this.chart,
             plotOptions: {
                 bar: {
@@ -102,6 +128,10 @@ export class ApexChartComponent {
                     columnWidth: "100%"
                 }
             },
+            responsive: [{
+                breakpoint: undefined,
+                options: {},
+            }],
             colors: ['#d4526e', '#13d8aa', '#A5978B', '#2b908f', '#f9a3a4',               
                 '#90ee7e', '#f48024', '#69d2e7', 'brown', 'blue', 'black', 'gold'
             ],
@@ -115,5 +145,37 @@ export class ApexChartComponent {
                 }
             }
         };
+    }
+
+    contentFormating(data: Array<Array<any>>) : void {
+        let content: string = `<span style="color: orange">[</span><br/>`
+        data.forEach((arr)=> {
+            content += `<span style="color: orange">[</span><br/>`
+            arr.forEach((obj)=> {
+                content += `<span style="color: gold">{</span><br/>`
+                for (const key in obj) {
+                    content +=
+                        `<span style="color: gold">"</span>
+                        <span style="color: #50a0ff">${key}</span>
+                        <span style="color: gold">"</span>
+                        <span style="color: aqua">:</span>
+                        <span style="color: gold">"</span>
+                        <span style="color: #cdcdcd">${obj[key]}</span>
+                        <span style="color: gold">"</span>
+                        <span style="color: aqua">,</span>
+                        <br/>`
+                }
+                content += `<span style="color: gold">}</span><br/>`
+            })
+            content += `<span style="color: orange">]</span><br/>`
+        })
+        content += `<span style="color: orange">[</span><br/>`
+
+        this.content = this.sanitizer
+        .bypassSecurityTrustHtml(content)
+    }
+
+    dataTap() : void {
+        this.showData = !this.showData
     }
 }

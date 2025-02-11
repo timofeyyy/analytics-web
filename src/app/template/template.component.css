@@ -10,7 +10,7 @@ main {
     display: flex;
 }
 
-.graphics {
+.charts {
     padding-top: 3vw;
     /* display: flex;
     flex-wrap: wrap;
@@ -25,17 +25,17 @@ main {
     margin: 2vw;
 }
 
-.graphic {
+.chart {
     /* margin: 1vw; */
     /* width: 22vw; */
-    height: 17vw;
+    height: max(17vw, 250px);
     border-radius: 0.5vw;
     overflow: hidden;
     box-shadow: 0 0 50px 10px rgba(0,0,0,0.5);
     position: relative;
 }
 
-.graphic iframe {
+.chart iframe {
     width: 100%;
     height: 100%;
     border: none;
@@ -43,7 +43,7 @@ main {
     scale: 1.2;
 }
 
-.graphic .wrapper {
+.chart .wrapper {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -56,7 +56,7 @@ main {
     top: 0;
 }
 
-.graphic .wrapper button {
+.chart .wrapper button {
     padding: 1vw 2vw;
     color: white;
     background-color: #1f1f1f;
@@ -67,9 +67,11 @@ main {
 
 }
 
-.graphic .wrapper:hover {
+.chart .wrapper:hover {
     opacity: 1;
 }
+
+
 
 /* @media (max-width: 700px) {
     .graphic {
@@ -77,5 +79,31 @@ main {
         height: 25vw;
 
         
+    }
+} */
+
+
+@media (max-width: 2279px) {
+    .chart iframe {
+        scale: 0.75;
+    }
+}
+
+@media (max-width: 1000px) {
+    .charts {
+        grid-template-columns: repeat(2, 48%);
+    
+    }
+}
+
+@media (max-width: 650px) {
+    .charts[_ngcontent-ng-c4133015449] {
+        grid-template-columns: repeat(1, 90%);
+    }
+}
+
+/* @media (min-width: 1650px) {
+    .chart iframe {
+        scale: 1.2;
     }
 } */

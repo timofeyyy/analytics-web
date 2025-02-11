@@ -31,6 +31,4 @@ export class NavigationComponent {
   setActiveRoute(component: IRouterData, index: number): void {
     component.isShown = !component.isShown
   }
-
-
 }

@@ -1,0 +1,105 @@
+header {
+    /* padding: 1vw; */
+    position: fixed;
+    z-index: 14;
+    left: 1vw;
+    top: 1vw;
+}
+
+
+header img {
+    width: max(2vw, 20px);
+    height: max(2vw, 20px);
+    transition: 0.3s ease all;
+    margin-right: 1vw;
+
+}
+
+header .invert {
+    filter: invert(1);
+}
+ 
+
+
+
+main {
+    display: flex;
+    /* justify-content: center; */
+    /* 400 min */
+}
+
+main .data {
+    background-color: #171717;
+    width: 0;
+    transition: 0.3s ease all;
+    width: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+main .data .content-wrapper span {
+    font-weight: thin;
+    font-size: max(1.2vw, 10px);
+    color: aqua;
+}
+
+
+main .data p {
+    color: #50a0ff;
+    font-weight: 500;
+    margin: 1vw;
+}
+
+
+main .data .content-wrapper {
+    width: 90%;
+    height: 82vh;
+    background-color: #282a2b;
+    overflow-y: scroll;
+    border-radius: 1vw;
+    box-sizing: border-box;
+    padding: 1vw;
+    margin-bottom: 2vw;
+    /* scrollbar-width: auto; */
+}
+
+main .open {
+    width: 40%;
+}
+
+main .chart {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    width: 60%;
+    margin: 0 auto;
+}
+
+
+main .chart .chart-wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+@media (max-width: 700px) {
+    main .chart  {
+        width: 100%;
+    }
+
+    main .data {
+        position: fixed;
+        height: 100%;
+        z-index: 13;
+    }
+
+    main .open {
+        width: 100%;
+    }
+
+    main header {
+        z-index: 13;
+    }
+}

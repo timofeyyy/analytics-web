@@ -1,7 +1,7 @@
 aside {
     position: fixed;
     height: 100%;
-    width: 20vw;
+    width: max(20vw, 250px);
     background-color: #171717;
     transition: 0.3s ease width;
     right: 0;
@@ -17,9 +17,9 @@ aside {
 
 
 header {
-    padding: 1vw;
+    /* padding: 1vw; */
     text-align: end;
-    position: absolute;
+    position: fixed;
     z-index: 13;
     right: 1vw;
     top: 1vw;
@@ -59,7 +59,7 @@ nav ul {
 nav ul li {
     padding: 0.5vw;
     color: white;
-    font-size: max(1.2vw, 10px);
+    font-size: max(1.2vw, 20px);
     overflow: hidden;
 }
 
@@ -86,8 +86,8 @@ nav ul .show>ul {
 nav ul li::before {
     display: inline-block;
     content: "";
-    width: max(1.2vw, 10px);
-    height: max(1.2vw, 10px);
+    width: max(1.2vw, 20px);
+    height: max(1.2vw, 20px);
     margin-right: max(0.5vw, 5px);
 }
 
