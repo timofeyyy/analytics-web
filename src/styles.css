@@ -4,3 +4,13 @@
     font-family: system-ui;
     scrollbar-width: none;
 }
+
+header img {
+    width: max(2vw, 20px);
+    height: max(2vw, 20px);
+    filter: invert(0);
+    transition: 0.3s ease all;
+    position: fixed;
+    z-index: 13;
+    top: 1vw;
+}

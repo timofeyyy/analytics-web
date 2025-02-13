@@ -13,7 +13,8 @@ import { ApexChartComponent } from "../apexChart.component";
   selector: 'app-line',
   imports: [ApexChartComponent],
   templateUrl: './line.component.html',
-  styleUrl: '../apexChart.component.css'
+  styleUrl: '../apexChart.component.css',
+  host: { 'hostID': crypto.randomUUID().toString() }
 })
 export class LineComponent {
   

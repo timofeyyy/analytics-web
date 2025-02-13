@@ -7,7 +7,8 @@ import { ApexChartComponent } from '../apexChart.component';
   selector: 'app-line',
   imports: [ApexChartComponent],
   templateUrl: './area.component.html',
-  styleUrl: '../apexChart.component.css'
+  styleUrl: '../apexChart.component.css',
+  host: { 'hostID': crypto.randomUUID().toString() }
 })
 export class AreaComponent {
   

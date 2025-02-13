@@ -40,7 +40,7 @@ export class ApexChartComponent {
             series: [
                 {
                     name: "",
-                    data: []
+                    data: [0]
                 }
             ],
             chart: {
@@ -150,24 +150,24 @@ export class ApexChartComponent {
     contentFormating(data: Array<Array<any>>) : void {
         let content: string = `<span style="color: orange">[</span><br/>`
         data.forEach((arr)=> {
-            content += `<span style="color: orange">[</span><br/>`
+            content += `<span style="color: orange; padding-left: 0.5vw"> [</span><br/>`
             arr.forEach((obj)=> {
-                content += `<span style="color: gold">{</span><br/>`
+                content += `<span style="color: gold; padding-left: 1vw">  {</span><br/>`
                 for (const key in obj) {
                     content +=
-                        `<span style="color: gold">"</span>
-                        <span style="color: #50a0ff">${key}</span>
-                        <span style="color: gold">"</span>
-                        <span style="color: aqua">:</span>
-                        <span style="color: gold">"</span>
-                        <span style="color: #cdcdcd">${obj[key]}</span>
-                        <span style="color: gold">"</span>
-                        <span style="color: aqua">,</span>
+                        `<span style="color: gold; padding-left: 1.5vw">"</span>
+                        <span style="color: #50a0ff;">${key}</span>
+                        <span style="color: gold; ">"</span>
+                        <span style="color: aqua; ">:</span>
+                        <span style="color: gold; ">"</span>
+                        <span style="color: #cdcdcd; ">${obj[key]}</span>
+                        <span style="color: gold; ">"</span>
+                        <span style="color: aqua; ">,</span>
                         <br/>`
                 }
-                content += `<span style="color: gold">}</span><br/>`
+                content += `<span style="color: gold; padding-left: 1vw">  }</span><span style="color: aqua; ">,</span><br/>`
             })
-            content += `<span style="color: orange">]</span><br/>`
+            content += `<span style="color: orange; padding-left: 0.5vw"> ]</span><br/>`
         })
         content += `<span style="color: orange">[</span><br/>`
 

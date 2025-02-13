@@ -14,26 +14,30 @@ aside {
     width: 0;
 }
 
-
+/* 
 
 header {
-    /* padding: 1vw; */
+    padding: 1vw;
     text-align: end;
     position: fixed;
     z-index: 13;
     right: 1vw;
     top: 1vw;
-}
+} */
 
 header .out {
     filter: invert(1);
 }
 
-header img {
-    width: max(2vw, 20px);
+.menu img {
+    /* width: max(2vw, 20px);
     height: max(2vw, 20px);
     filter: invert(0);
     transition: 0.3s ease all;
+    position: fixed;
+    z-index: 13;
+    top: 1vw; */
+    right: 1vw;
 }
 
 nav {

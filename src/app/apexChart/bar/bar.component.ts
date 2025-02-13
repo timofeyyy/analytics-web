@@ -19,7 +19,8 @@ import { ApexChartComponent } from "../apexChart.component";
   selector: 'app-bar',
   imports: [ApexChartComponent],
   templateUrl: './bar.component.html',
-  styleUrl: '../apexChart.component.css'
+  styleUrl: '../apexChart.component.css',
+  host: { 'hostID': crypto.randomUUID().toString() }
 })
 export class BarComponent {
 

@@ -1,17 +1,6 @@
-header {
-    /* padding: 1vw; */
-    position: fixed;
+.data img {
     z-index: 14;
     left: 1vw;
-    top: 1vw;
-}
-
-
-header img {
-    width: max(2vw, 20px);
-    height: max(2vw, 20px);
-    transition: 0.3s ease all;
-    margin-right: 1vw;
 
 }
 
